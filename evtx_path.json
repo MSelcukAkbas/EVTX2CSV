@@ -1,0 +1,84 @@
+{
+    "evtx_path": [
+        {
+            "file_name": "Application.evtx",
+            "description": "Uygulama ile ilgili olay kayıtlarını içerir."
+        },
+        {
+            "file_name": "HardwareEvents.evtx",
+            "description": "Donanım ile ilgili olay kayıtlarını içerir."
+        },
+        {
+            "file_name": "Intel-GFX-Info%4Application.evtx",
+            "description": "Intel grafik sürücüsü ile ilgili uygulama olaylarını içerir."
+        },
+        {
+            "file_name": "Intel-GFX-Info%4System.evtx",
+            "description": "Intel grafik sürücüsü ile ilgili sistem olaylarını içerir."
+        },
+        {
+            "file_name": "Internet Explorer.evtx",
+            "description": "Internet Explorer ile ilgili olay kayıtlarını içerir."
+        },
+        {
+            "file_name": "Key Management Service.evtx",
+            "description": "Anahtar yönetimi hizmeti ile ilgili olay kayıtlarını içerir."
+        },
+        {
+            "file_name": "Microsoft-AppV-Client%4Admin.evtx",
+            "description": "Microsoft App-V istemcisi ile ilgili yönetim olaylarını içerir."
+        },
+        {
+            "file_name": "Microsoft-AppV-Client%4Operational.evtx",
+            "description": "Microsoft App-V istemcisi ile ilgili operasyonel olayları içerir."
+        },
+        {
+            "file_name": "Microsoft-AppV-Client%4Virtual Applications.evtx",
+            "description": "Microsoft App-V ile sanal uygulamalarla ilgili olay kayıtlarını içerir."
+        },
+        {
+            "file_name": "Microsoft-Client-License-Flexible-Platform%4Admin.evtx",
+            "description": "Microsoft istemci lisans yönetimi ile ilgili yönetim olaylarını içerir."
+        },
+        {
+            "file_name": "Microsoft-Windows-Kernel-EventTracing%4Admin.evtx",
+            "description": "Windows çekirdek olay izleme ile ilgili yönetim olaylarını içerir."
+        },
+        {
+            "file_name": "Microsoft-Windows-Kernel-PnP%4Configuration.evtx",
+            "description": "Windows çekirdek Plug and Play ile ilgili yapılandırma olaylarını içerir."
+        },
+        {
+            "file_name": "Microsoft-Windows-Crashdump%4Operational.evtx",
+            "description": "Windows çökme dökümü ile ilgili operasyonel olay kayıtlarını içerir."
+        },
+        {
+            "file_name": "Microsoft-Windows-Ntfs%4Operational.evtx",
+            "description": "Windows NTFS dosya sistemi ile ilgili operasyonel olay kayıtlarını içerir."
+        },
+        {
+            "file_name": "Microsoft-Windows-WHEA%4Errors.evtx",
+            "description": "Windows Hata Tespit ve Raporlama ile ilgili hata olaylarını içerir."
+        },
+        {
+            "file_name": "Microsoft-Windows-BitLocker-DrivePreparationTool%4Operational.evtx",
+            "description": "BitLocker sürücü hazırlama aracı ile ilgili operasyonel olay kayıtlarını içerir."
+        },
+        {
+            "file_name": "Microsoft-Windows-AppLocker%4EXE and DLL.evtx",
+            "description": "AppLocker ile ilgili EXE ve DLL dosyası olay kayıtlarını içerir."
+        },
+        {
+            "file_name": "Microsoft-Windows-Diagnosis-PCW%4Operational.evtx",
+            "description": "Windows PC'yi tanılama ile ilgili operasyonel olay kayıtlarını içerir."
+        },
+        {
+            "file_name": "Microsoft-Windows-Dhcp-Client%4Admin.evtx",
+            "description": "DHCP istemcisi ile ilgili yönetim olaylarını içerir."
+        },
+        {
+            "file_name": "Microsoft-Windows-DiskDiagnosticDataCollector%4Operational.evtx",
+            "description": "Disk tanılama veri toplayıcı ile ilgili operasyonel olay kayıtlarını içerir."
+        }
+    ]
+}
