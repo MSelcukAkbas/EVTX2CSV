@@ -1,0 +1,17 @@
+[build-system]
+requires = ["setuptools>=42", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "EVTX2CSV"                       
+version = "0.1.0"             
+description = "A tool to convert EVTX event logs to CSV format." 
+readme = "README.md"           
+authors = [{ name = "Selçuk Akbaş", email = "akbasselcuk32@gmail.com" }]  
+license = { text = "MIT" }              
+keywords = ["EVTX", "CSV", "converter"]  
+dependencies = ["requests"]            
+
+[project.urls]
+"Bug Tracker" = "https://github.com/MSelcukAkbas/EVTX2CSV/issues" 
+"Source" = "https://github.com/MSelcukAkbas/EVTX2CSV"              
