@@ -1,58 +1,142 @@
-# EVTX to CSV Converter
+# EvtxToCsv
 
-## Açıklama
-EVTX to CSV Converter, Windows olay günlüklerini (EVTX) CSV formatına dönüştürmek için kullanılan bir Python sınıfıdır. Bu sınıf, bir JSON dosyası içindeki olay günlüklerini okur ve her birini CSV dosyalarına dönüştürmek için gerekli komutları oluşturur.
+Windows Olay Günlüğü (EVTX) dosyalarını CSV formatına dönüştüren Python kütüphanesi.
+
+[![PyPI version](https://badge.fury.io/py/evtxtocsv.svg)](https://badge.fury.io/py/evtxtocsv)
+[![Python Versions](https://img.shields.io/pypi/pyversions/evtxtocsv.svg)](https://pypi.org/project/evtxtocsv/)
+[![License](https://img.shields.io/pypi/l/evtxtocsv.svg)](https://github.com/MSelcukAkbas/EVTX2CSV/blob/main/LICENSE)
 
 ## Özellikler
-- EVTX dosyalarını CSV formatına dönüştürür.
-- JSON dosyasından olay günlükü dosyası isimlerini yükler.
-- Geçersiz dosya isimlerini günlüğe kaydeder.
-- Dönüştürme işlemini otomatik olarak yapar.
 
-## Gereksinimler
-- Python 3.x
-- Windows işletim sistemi
-- `powershell`
+- Windows Olay Günlüğü (EVTX) dosyalarını CSV formatına dönüştürme
+- Kategori bazlı log filtreleme (Sistem, Güvenlik, Uygulama vb.)
+- Kritik log dosyalarını otomatik tanımlama ve dönüştürme
+- Yönetici izinlerini otomatik yükseltme
+- Türkçe arayüz ve hata mesajları
 
 ## Kurulum
-1. Bu projeyi bilgisayarınıza klonlayın veya indirin.
-2. Gerekli Python kütüphaneleri standart kütüphanelerdir, bu nedenle ek bir yükleme işlemi gerektirmemektedir. Projeyi çalıştırmak için sadece Python 3.x kurulu olmalıdır.
+
+```bash
+pip install evtxtocsv
+```
+
+## Gereksinimler
+
+- Python 3.6+
+- Windows işletim sistemi
+- PowerShell
 
 ## Kullanım
-1. `evtx_path.json` adında bir JSON dosyası oluşturun. Aşağıda örnek bir JSON formatı verilmiştir:
 
-    ```json
-    {
-        "event_logs": [
-            {
-                "file_name": "Application.evtx",
-                "description": "Contains event logs related to the application."
-            },
-            {
-                "file_name": "HardwareEvents.evtx",
-                "description": "Contains event logs related to hardware."
-            }
-        ]
-    }
-    ```
+### Basit Kullanım
 
-2. Python dosyasını çalıştırın:
+```python
+from evtxtocsv import EvtxToCsv
 
-    ```bash
-    python EVTX2CSV.py
-    ```
+# Tüm logları dönüştürme
+converter = EvtxToCsv()
+converter.convert_all_logs()
+```
 
-## Dosya Yapısı
-- `evtx_path.json`: Olay günlüklerinin isimlerini ve açıklamalarını içeren JSON dosyası.
-- `log_error.csv`: Dönüştürme işlemi sırasında oluşabilecek hataların kaydedileceği dosya.
-- `evtx_csv/`: Dönüştürülmüş CSV dosyalarının kaydedileceği klasör.
+### Kategori Bazlı Dönüştürme
 
-## Hata Ayıklama
-Herhangi bir hata ile karşılaşırsanız, `log_error.csv` dosyasını kontrol edin. Hatalar burada zaman damgası, hata türü ve hata mesajı ile birlikte kaydedilecektir.
+```python
+from evtxtocsv import EvtxToCsv
+
+# Kütüphaneyi başlat
+converter = EvtxToCsv()
+
+# Güvenlik kategorisindeki logları dönüştür
+converter.convert_logs_by_category("Security")
+```
+
+### Kritik Logları Dönüştürme
+
+```python
+from evtxtocsv import EvtxToCsv
+
+# Kütüphaneyi başlat
+converter = EvtxToCsv()
+
+# Yalnızca kritik logları dönüştür
+converter.convert_critical_logs()
+```
+
+### Özel Çıktı Dizini Belirtme
+
+```python
+from evtxtocsv import EvtxToCsv
+
+# Özel çıktı dizini belirt
+converter = EvtxToCsv(output_directory="C:\\forensics\\logs")
+
+# Dönüştürme işlemini gerçekleştir
+converter.convert_all_logs()
+```
+
+### Komut Satırı Arayüzü ile Kullanım
+
+```python
+import evtxtocsv
+
+# Etkileşimli menü başlatılır
+evtxtocsv.easy_usage()
+```
+
+## API Referansı
+
+### `EvtxToCsv` Sınıfı
+
+#### Yapıcı
+
+```python
+EvtxToCsv(output_directory=None)
+```
+
+- **output_directory** (opsiyonel): CSV dosyalarının kaydedileceği dizin. Belirtilmezse "evtx_csv_output" kullanılır.
+
+#### Metodlar
+
+##### `convert_all_logs()`
+Sistemdeki tüm log dosyalarını CSV formatına dönüştürür.
+
+##### `convert_critical_logs()`
+Kritik log dosyalarını (Sistem, Güvenlik, Uygulama) CSV formatına dönüştürür.
+
+##### `convert_logs_by_category(category)`
+Belirtilen kategorideki log dosyalarını CSV formatına dönüştürür.
+
+- **category**: Dönüştürülecek log kategorisi (örn. "System", "Security", "Application" vb.)
+
+##### `get_all_categories()`
+Tanımlı tüm log kategorilerini döndürür.
+
+##### `get_logs_by_category(category_name="System")`
+Belirtilen kategorideki log dosyalarını döndürür.
+
+- **category_name**: İstenen kategori adı
+
+##### `is_admin()`
+Mevcut işlemin yönetici haklarıyla çalışıp çalışmadığını kontrol eder.
+
+## Notlar
+
+- Kütüphane, Windows sistemlerinde yönetici izniyle çalıştırılması gerekebilir.
+- İlk kullanımda gerekirse, yönetici izni otomatik olarak istenir.
+- Dönüştürme işlemi için PowerShell kullanılır.
 
 ## Katkıda Bulunma
 
-Herhangi bir öneri veya katkıda bulunmak isterseniz, lütfen aşağıdan iletişime geçin.
+Katkıda bulunmak için lütfen bir GitHub "issue" açın veya "pull request" gönderin.
 
-- E-posta: [akbasselcuk32@gmail.com](mailto:akbasselcuk32@gmail.com)
-- LinkedIn: [Mustafa Selçuk Akbaş](https://linkedin.com/in/mustafa-selcuk-akbas)
+## Lisans
+
+Bu proje MIT Lisansı altında lisanslanmıştır. Daha fazla bilgi için [LICENSE](LICENSE) dosyasına bakın.
+
+## Yazar
+
+[Mustafa Selçuk Akbaş](https://github.com/MSelcukAkbas) - [LinkedIn](https://www.linkedin.com/in/mustafa-selcuk-akbas/) - E-posta: akbasselcuk32@gmail.com
+
+## İlgili Projeler
+
+[EVTX2CSV](https://github.com/MSelcukAkbas/EVTX2CSV) - Windows olay günlüklerini CSV formatına dönüştüren bir başka proje. 
