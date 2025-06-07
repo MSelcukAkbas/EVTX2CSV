@@ -137,6 +137,6 @@ Bu proje MIT Lisansı altında lisanslanmıştır. Daha fazla bilgi için [LICEN
 
 [Mustafa Selçuk Akbaş](https://github.com/MSelcukAkbas) - [LinkedIn](https://www.linkedin.com/in/mustafa-selcuk-akbas/) - E-posta: akbasselcuk32@gmail.com
 
-## İlgili Projeler
+## pypi.org u ziyaret etmeyi unutmayın 
 
-[EVTX2CSV](https://github.com/MSelcukAkbas/EVTX2CSV) - Windows olay günlüklerini CSV formatına dönüştüren bir başka proje. 
+[EVTX2CSV]([https://github.com/MSelcukAkbas/EVTX2CSV](https://pypi.org/project/evtxtocsv/))
